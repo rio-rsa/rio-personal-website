@@ -1,64 +1,91 @@
 'use client';
 
 import * as React from 'react';
-import '@/lib/env';
+import { SiGmail } from 'react-icons/si';
 
-import ArrowLink from '@/components/links/ArrowLink';
-import ButtonLink from '@/components/links/ButtonLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
+// You will need to create this data file and export these constants
+import { BLOG_POSTS, PROJECTS, PUBLICATIONS } from '@/data/content';
 
-/**
- * SVGR Support
- * Caveat: No React Props Type.
- *
- * You can override the next-env if the type is important to you
- * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
- */
-import Logo from '~/svg/Logo.svg';
+// You will need to create these component files
+import { ChatWidget } from '@/app/components/ChatWidget';
+import { Hero } from '@/app/components/Hero';
+import { ProjectCard } from '@/app/components/ProjectCard';
+import { PublicationItem } from '@/app/components/PublicationItem';
+import { Section } from '@/app/components/Section';
 
 export default function HomePage() {
   return (
+    // The <main> tag is a good container. The outer div is not needed here
+    // because the main layout is handled by layout.tsx
     <main>
-      <section className='bg-white'>
-        <div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
-          <Logo className='w-16' />
-          <h1 className='mt-4'>Next.js + Tailwind CSS + TypeScript Starter</h1>
-          <p className='mt-2 text-sm text-gray-800'>
-            A starter for Next.js, Tailwind CSS, and TypeScript with Absolute
-            Import, Seo, Link component, pre-configured with Husky{' '}
-          </p>
-          <p className='mt-2 text-sm text-gray-700'>
-            <ArrowLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
-              See the repository
-            </ArrowLink>
-          </p>
+      <Hero />
 
-          <ButtonLink className='mt-6' href='/components' variant='light'>
-            See all components
-          </ButtonLink>
-
-          <UnstyledLink
-            href='https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Ftheodorusclarence%2Fts-nextjs-tailwind-starter'
-            className='mt-4'
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              width='92'
-              height='32'
-              src='https://vercel.com/button'
-              alt='Deploy with Vercel'
-            />
-          </UnstyledLink>
-
-          <footer className='absolute bottom-2 text-gray-700'>
-            © {new Date().getFullYear()} By{' '}
-            <UnderlineLink href='https://theodorusclarence.com?ref=tsnextstarter'>
-              Theodorus Clarence
-            </UnderlineLink>
-          </footer>
+      <Section id='projects' title='Selected Projects'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          {PROJECTS.map((p) => (
+            <ProjectCard key={p.id} project={p} />
+          ))}
         </div>
-      </section>
+      </Section>
+
+      <Section id='research' title='Research & Publications' light>
+        <div className='flex flex-col max-w-3xl mx-auto'>
+          {PUBLICATIONS.map((p) => (
+            <PublicationItem key={p.id} publication={p} />
+          ))}
+        </div>
+      </Section>
+
+      <Section id='blog' title='Thoughts'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 max-w-4xl mx-auto'>
+          {BLOG_POSTS.map((post) => (
+            <article
+              key={post.id}
+              className='flex flex-col group cursor-pointer'
+            >
+              <div className='flex items-center gap-3 mb-3 border-b border-stone-200 pb-2'>
+                <span className='text-xs font-mono text-stone-400'>
+                  {post.date}
+                </span>
+                <span className='text-xs font-bold text-stone-900 uppercase tracking-wider'>
+                  {post.tags[0]}
+                </span>
+              </div>
+              <h3 className='text-2xl font-serif font-bold text-stone-900 mb-3 group-hover:text-stone-600 transition-colors'>
+                {post.title}
+              </h3>
+              <p className='text-stone-600 leading-relaxed text-sm mb-4'>
+                {post.excerpt}
+              </p>
+              <span className='text-sm font-medium text-stone-900 underline decoration-stone-300 underline-offset-4 group-hover:decoration-stone-900 transition-all'>
+                Read Article
+              </span>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section id='contact' title='Get in Touch' className='mb-20'>
+        <div className='bg-white border border-stone-200 rounded-md p-10 md:p-16 text-center max-w-3xl mx-auto shadow-sm'>
+          <h3 className='font-serif text-2xl md:text-3xl text-stone-900 mb-6'>
+            Interested in collaboration?
+          </h3>
+          <p className='text-lg text-stone-600 mb-10 leading-relaxed font-light'>
+            I am currently open to consulting opportunities and research
+            collaborations. My inbox is always open for interesting data
+            problems.
+          </p>
+          <a
+            href='mailto:rio@riothinks.com'
+            className='inline-flex items-center gap-3 px-8 py-4 bg-stone-900 text-stone-50 font-medium text-sm tracking-wide rounded-md hover:bg-stone-700 transition-all'
+          >
+            <SiGmail className='w-4 h-4' />
+            RIO@RIOTHINKS.COM
+          </a>
+        </div>
+      </Section>
+
+      <ChatWidget />
     </main>
   );
 }

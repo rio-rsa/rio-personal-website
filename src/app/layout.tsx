@@ -5,6 +5,9 @@ import '@/styles/globals.css';
 
 import { siteConfig } from '@/constant/config';
 
+import Footer from './components/layout/footer';
+import Header from './components/layout/header';
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -52,7 +55,11 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
