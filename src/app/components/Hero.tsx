@@ -68,8 +68,10 @@ export const Hero: React.FC = () => {
           <div className='relative w-64 h-64 md:w-[400px] md:h-[400px]'>
             <div className='absolute inset-0 rounded-full border border-stone-200 transform translate-x-4 translate-y-4'></div>
             <Image
-              src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop'
+              src='/images/headshot.webp'
               alt='Rio Headshot'
+              fill={true}
+              sizes='(max-width: 768px) 256px, 400px'
               className='relative w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl shadow-stone-200'
             />
           </div>
