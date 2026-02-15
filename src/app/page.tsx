@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { SiGmail } from 'react-icons/si';
+import { SiGmail, SiLinkedin } from 'react-icons/si';
 
 // You will need to create this data file and export these constants
 import { BLOG_POSTS, PROJECTS, PUBLICATIONS } from '@/data/content';
@@ -71,9 +71,9 @@ export default function HomePage() {
             Interested in collaboration?
           </h3>
           <p className='text-lg text-stone-600 mb-10 leading-relaxed font-light'>
-            I am currently open to consulting opportunities and research
-            collaborations. My inbox is always open for interesting data
-            problems.
+            If you wish to get in contact with me in regards to a professional
+            or academic opportunity, you can email me or connect with me on
+            LinkedIn.
           </p>
           <a
             href='mailto:rio@riothinks.com'
@@ -81,6 +81,12 @@ export default function HomePage() {
           >
             <SiGmail className='w-4 h-4' />
             RIO@RIOTHINKS.COM
+          </a>
+          <a
+            href='https://www.linkedin.com/in/rioraj777881840519/'
+            className='inline-flex items-center gap-3 px-8 py-4 bg-stone-900 text-stone-50 font-medium text-sm tracking-wide rounded-md hover:bg-stone-700 transition-all'
+          >
+            <SiLinkedin className='w-4 h-4' />
           </a>
         </div>
       </Section>

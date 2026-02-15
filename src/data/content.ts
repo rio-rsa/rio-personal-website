@@ -7,16 +7,13 @@ My work bridges the gap between raw data and actionable insights. I specialize i
 `;
 
 export const SKILLS = [
-  'Python',
-  'Rust',
-  'SQL',
-  'Apache Spark',
-  'Kafka',
-  'Snowflake',
-  'AWS',
-  'Terraform',
-  'dbt',
-  'Docker',
+  'Computer Vision',
+  'Deep Learning',
+  'Conservation AI',
+  'Statistical Modelling',
+  'Data Modelling',
+  'Distributed Data Processing',
+  'Streaming & Event Data',
 ];
 
 export const PROJECTS: Project[] = [

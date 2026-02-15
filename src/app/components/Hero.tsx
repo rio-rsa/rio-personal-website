@@ -10,7 +10,7 @@ export const Hero: React.FC = () => {
       id='home'
       className='min-h-[85vh] flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-32 pb-12'
     >
-      <div className='max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center'>
+      <div className='max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20'>
         {/* Text Content */}
         <div className='order-2 md:order-1'>
           <div className='mb-8 flex items-center gap-3'>
@@ -27,9 +27,12 @@ export const Hero: React.FC = () => {
           </h1>
 
           <p className='text-lg md:text-xl text-stone-600 max-w-lg leading-relaxed mb-10 font-light'>
-            Building scalable distributed systems and exploring the theoretical
-            underpinnings of information architecture. Bridging the gap between
-            industry engineering and academic rigor.
+            I am a Data Engineer & Researcher from Perth, Western Australia. I
+            have professional experience in building enterprise-scale
+            distributed data pipelines and analytics platforms focused on
+            reliability, performance, and maintainability. I am also active in
+            Academia and I research machine learning applications in wildlife
+            conservation in Australia.
           </p>
 
           <div className='flex flex-wrap gap-4 mb-12'>
@@ -52,7 +55,7 @@ export const Hero: React.FC = () => {
               Technical Focus
             </p>
             <div className='flex flex-wrap gap-x-8 gap-y-3 font-mono text-sm text-stone-600'>
-              {SKILLS.slice(0, 5).map((skill) => (
+              {SKILLS.slice(0, 7).map((skill) => (
                 <span key={skill} className='relative'>
                   {skill}
                 </span>
@@ -63,9 +66,9 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Headshot Image */}
-        <div className='order-1 md:order-2 flex justify-center md:justify-end relative'>
+        <div className='order-1 md:order-2 flex justify-center relative'>
           {/* Image Container with aesthetic borders */}
-          <div className='relative w-64 h-64 md:w-[400px] md:h-[400px]'>
+          <div className='relative w-64 h-64 md:w-[600px] md:h-[600px]'>
             <div className='absolute inset-0 rounded-full border border-stone-200 transform translate-x-4 translate-y-4'></div>
             <Image
               src='/images/headshot.webp'
